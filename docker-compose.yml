@@ -1,0 +1,13 @@
+services:
+  nut-client:
+    build: .
+    container_name: nut-client-upsmon
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    pid: host
+    env_file:
+      - .env
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/sys:ro
